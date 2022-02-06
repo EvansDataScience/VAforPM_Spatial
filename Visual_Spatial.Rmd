@@ -12,7 +12,7 @@
 _____
 
 
-# Session 6: Spatial Data
+# Spatial Data
 _____
 
 
@@ -20,27 +20,29 @@ _____
 
 # Opening data files
 
-Let's open this file that includes the democracy index, the human development index, adn the military expenditures  as share of gdp at the country level :
-```{r}
+Let's open this file that includes the _democracy index_, the _human development index_, and the _military expenditures  as share of gdp_, all at the country level:
+
+```{r, eval=TRUE}
 
 linkCSV='https://github.com/EvansDataScience/VAforPM_Spatial/raw/main/merged_data.csv'
 
 dataCSV=read.csv(linkCSV)
 ```
 
-This is what you have:
-```{r}
+This is what we have:
+
+```{r, eval=TRUE}
 str(dataCSV)
 ```
 
 Let's explore the behavior of each numerical variable:
 
-```{r}
+```{r, eval=TRUE}
 boxplot(dataCSV[,c('DemoIndex','HDI','mil_expend')])
 ```
 The data ranges are different. We can try **standardization**:
 
-```{r}
+```{r, eval=TRUE}
 dataCSV$HDI_S=as.vector(scale(dataCSV$HDI))
 dataCSV$DEM_S=as.vector(scale(dataCSV$DemoIndex))
 dataCSV$MIL_S=as.vector(scale(dataCSV$mil_expend))
@@ -48,14 +50,13 @@ dataCSV$MIL_S=as.vector(scale(dataCSV$mil_expend))
 
 Let's cluster the data using **pam** again:
 
-```{r}
-#data to cluster
+```{r, eval=TRUE}
+
 
 set.seed(123)
 
 library(cluster)
-vars=c('HDI_S','DEM_S','MIL_S')
-
+vars=c('HDI_S','DEM_S','MIL_S')#variables needed
 
 distMatrix=cluster::daisy(dataCSV[,vars])
           
@@ -67,22 +68,22 @@ res.pam=cluster::pam(x=distMatrix,
 
 Let's save the cluster info into the data frame:
 
-```{r}
+```{r, eval=TRUE}
 dataCSV$cluster=as.factor(res.pam$clustering)
 ```
 
 Check order:
 
-```{r}
+```{r, eval=TRUE}
 theVars=c('HDI_S','DEM_S','MIL_S','cluster')
 aggregate(.~cluster,
           data=dataCSV[,theVars],
           FUN=median)
 ```
 
-We could recode:
+We could recode so that number ordering make sense:
 
-```{r}
+```{r, eval=TRUE}
 dataCSV$cluster=factor(dataCSV$cluster,
                            levels=c(1,3,2),
                            labels=c("low","mid","best"), 
@@ -90,23 +91,25 @@ dataCSV$cluster=factor(dataCSV$cluster,
 ```
 
 
-Now let me open the map:
+Now, let me open the map:
 
 
-```{r}
-linkMap="https://github.com/EvansDataScience/VAforPM_Spatial/raw/main/worldMap.geojson" # link desde github
+```{r, eval=TRUE}
+linkMap="https://github.com/EvansDataScience/VAforPM_Spatial/raw/main/worldMap.geojson" 
 
 library(sf)
 mapWorld=read_sf(linkMap)
 ```
+
 This is the data that came with the map:
 
 ```{r, eval=TRUE}
 # see data in map
 head(mapWorld)
 ```
+The map also shows important information that common data frames, especially the CRS. The CRS tells information about the map projection. In case you want to produce other maps you need that these have the same CRS.
 
-Let's add our data to the map data by merging:
+Let's add our data to the map by merging:
 
 ```{r, eval=TRUE}
 mapWorldVars=merge(mapWorld, #map first
@@ -115,11 +118,11 @@ mapWorldVars=merge(mapWorld, #map first
 ```
 
 
-You can map the data now using ggplot. Let me do it by layers:
+We can map the data now using _ggplot_. Let me do it by layers:
 
 1. Base layer: 
 
-```{r}
+```{r, eval=TRUE}
 library(ggplot2)
 # plot original map
 base=ggplot(data=mapWorld) + geom_sf(fill='grey90',
@@ -131,38 +134,42 @@ base #base map
 
 2. Data layer:
 
-```{r}
+This will be plot on top of the previous. Whatever is still in grey means a country has no information:
+
+```{r, eval=TRUE}
 colMap= base + geom_sf(data=mapWorldVars,
                        aes(fill=DemoIndex),
                        color=NA)
 colMap
 ```
 
-```{r}
+We can alter the color sequence:
+
+```{r, eval=TRUE}
 colMap + scale_fill_gradient(low = 'red',
                              high= 'blue')
 ```
 
 
-Now paint the countries (ggplot decides color):
+Now paint the countries using the cluster information (ggplot decides color):
 
-```{r}
+```{r, eval=TRUE}
 clusterMap= base + geom_sf(data=mapWorldVars,
                            aes(fill=cluster),
                            color=NA) # color of border
 clusterMap 
 ```
 
-Now you choose the palette (get it from [here](http://colorbrewer2.org/)):
+Now we choose the palette (get it from [here](http://colorbrewer2.org/)):
 
-```{r}
+```{r, eval=TRUE}
 clusterMap+ scale_fill_brewer(palette ='YlOrRd')
 ```
 
 
 Some more customization:
 
-```{r}
+```{r, eval=TRUE}
 #previously
 theLegLabels=c('1_worst',2,'3_best')
 theLegTitle="World_Order\n(grey is missing)"
@@ -174,12 +181,12 @@ clusterMap+ scale_fill_brewer(palette ='YlOrRd',
                               name=theLegTitle)
 ```
 
-Let me bring two data sets on cities:
+Let me make other map by bringing a data set on cities:
 
-```{r}
+```{r, eval=TRUE}
 library(rio)
 
-linkCity="https://github.com/Visual-Analytics-Project-UW-EvansSchool/mergedData/raw/main/otherData/citiesloc.xlsx"
+linkCity="https://github.com/EvansDataScience/VAforPM_Spatial/raw/main/citiesloc.xlsx"
 
 
 idxcity=import(linkCity)
@@ -187,13 +194,14 @@ idxcity=import(linkCity)
 ```
 
 The data on cities is known (it is a summary) but this files has some location info:
-```{r}
+
+```{r, eval=TRUE}
 str(idxcity)
 ```
 
-Let's cluster:
+Let's cluster as before:
 
-```{r}
+```{r, eval=TRUE}
 varsidx=c("DIGITAL","HEALTH","INFRASTRUCTURE","PERSONAL")
 
 set.seed(123)
@@ -210,7 +218,7 @@ idxcity$cluster=res.pam2$clustering
 
 Let's check the order:
 
-```{r}
+```{r, eval=TRUE}
 
 varsidx=c(varsidx,'cluster')
 aggregate(data=idxcity[,varsidx],
@@ -219,7 +227,7 @@ aggregate(data=idxcity[,varsidx],
 ```
 
 We could improve the labels:
-```{r}
+```{r, eval=TRUE}
 idxcity$cluster=factor(idxcity$cluster,
                        levels=c(3,1,2),
                        labels=c("bad","middle",'good'),
@@ -227,9 +235,9 @@ idxcity$cluster=factor(idxcity$cluster,
 ```
 
 
-Let me use the location of the city to create a spatial object:
+Let me use the location of the city to create a spatial points object:
 
-```{r}
+```{r, eval=TRUE}
 idxcity_sf = st_as_sf(idxcity, 
                       coords = c("lng", "lat"),
                       crs = st_crs(mapWorldVars)) # shared
@@ -238,13 +246,13 @@ idxcity_sf = st_as_sf(idxcity,
 
 Now we have:
 
-```{r}
+```{r, eval=TRUE}
 head(idxcity_sf)
 ```
 
-As this is a spatial object:
+As this is a spatial object let me add it on top of the basemap:
 
-```{r}
+```{r, eval=TRUE}
 base + geom_sf(data=idxcity_sf)
 ```
 
@@ -252,7 +260,7 @@ base + geom_sf(data=idxcity_sf)
 
 Finally:
 
-```{r}
+```{r, eval=TRUE}
 #previously
 fillLabels=c('1_worst',2,'3_best')
 fillTitle="Cities safety"
@@ -272,38 +280,12 @@ points =points + scale_size(name=nameSize,
 points
 ```
 
-We can facet the plotting area:
 
-```{r}
-points + facet_wrap(~cluster)
+We can alter the legend position:
+
+```{r, eval=TRUE}
+points +     theme(legend.position="bottom", 
+          legend.box = "vertical") #+ guides(fill=FALSE)
 ```
 
-Another option is _grid_:
-
-```{r}
-points + facet_grid(cluster~.)
-```
-
-
-
-We can alter the legend position, and eliminate the unneeded legend:
-
-```{r}
-points + facet_grid(cluster~.) +
-    theme(legend.position="bottom", 
-          legend.box = "vertical") + guides(fill=FALSE)
-```
-
-Some additional possibilities:
-```{r}
-points + facet_wrap(cluster~.,ncol = 1) +
-    theme(legend.position=c("bottom"),
-          legend.box = "vertical",
-          strip.text = element_text(size = 8,color='white'),
-          strip.background = element_rect(color = NA,
-                                          fill='black')
-          ) + guides(fill=FALSE)
-```
-
-[home](#home)
 
