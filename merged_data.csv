@@ -1,0 +1,140 @@
+"ISO3","Country","DemoIndex","HDI","mil_expend"
+"AFG","Afghanistan",2.85,0.511,1.2
+"AGO","Angola",3.66,0.581,1.6
+"ALB","Albania",6.08,0.795,1.47
+"ARE","United Arab Emirates",2.7,0.89,5.7
+"ARG","Argentina",6.95,0.845,0.7
+"ARM","Armenia",5.35,0.776,4.9
+"AUS","Australia",8.96,0.944,1.9
+"AUT","Austria",8.16,0.922,0.7
+"AZE","Azerbaijan",2.68,0.756,4
+"BDI","Burundi",2.14,0.433,1.8
+"BEL","Belgium",7.51,0.931,1.1
+"BEN","Benin",4.58,0.545,0.7
+"BFA","Burkina Faso",3.73,0.452,2.4
+"BGD","Bangladesh",5.99,0.632,1.3
+"BGR","Bulgaria",6.71,0.816,1.93
+"BHR","Bahrain",2.49,0.852,3.7
+"BIH","Bosnia and Herzegovina",4.84,0.78,0.9
+"BLR","Belarus",2.59,0.823,1.2
+"BOL","Bolivia",5.08,0.718,1.4
+"BRA","Brazil",6.92,0.765,1.5
+"BWA","Botswana",7.62,0.735,2.8
+"CAF","Central African Republic",1.32,0.397,1.5
+"CAN","Canada",9.24,0.929,1.45
+"CHE","Switzerland",8.83,0.955,0.7
+"CHL","Chile",8.28,0.851,1.8
+"CHN","China",2.27,0.761,1.9
+"CIV","Cote d'Ivoire",4.11,0.538,1.1
+"CMR","Cameroon",2.77,0.563,1.1
+"COL","Colombia",7.04,0.767,3.2
+"CUB","Cuba",2.84,0.783,2.9
+"CYP","Cyprus",7.56,0.887,1.6
+"DEU","Germany",8.67,0.947,1.57
+"DNK","Denmark",9.15,0.94,1.47
+"DOM","Dominican Republic",6.32,0.756,0.7
+"DZA","Algeria",3.77,0.748,6
+"ECU","Ecuador",6.13,0.759,2.3
+"EGY","Egypt",2.93,0.707,1.2
+"ESP","Spain",8.12,0.904,1.16
+"EST","Estonia",7.84,0.892,2.38
+"ETH","Ethiopia",3.38,0.485,0.7
+"FIN","Finland",9.2,0.938,1.5
+"FJI","Fiji",5.72,0.743,1.6
+"FRA","France",7.99,0.901,2.11
+"GAB","Gabon",3.54,0.703,1.6
+"GBR","United Kingdom",8.54,0.932,2.43
+"GEO","Georgia",5.31,0.812,2
+"GHA","Ghana",6.5,0.611,0.4
+"GIN","Guinea",3.08,0.477,2
+"GNB","Guinea-Bissau",2.63,0.48,1.4
+"GNQ","Equatorial Guinea",1.92,0.592,1.1
+"GRC","Greece",7.39,0.888,2.58
+"GTM","Guatemala",4.97,0.663,0.4
+"GUY","Guyana",6.01,0.682,1.7
+"HND","Honduras",5.36,0.634,1.6
+"HRV","Croatia",6.5,0.851,1.87
+"HUN","Hungary",6.56,0.854,1.33
+"IDN","Indonesia",6.3,0.718,0.7
+"IND","India",6.61,0.645,2.4
+"IRL","Ireland",9.05,0.955,0.3
+"IRQ","Iraq",3.62,0.674,3.5
+"ISL","Iceland",9.37,0.949,0.3
+"ISR","Israel",7.84,0.919,5
+"ITA","Italy",7.74,0.892,1.43
+"JAM","Jamaica",7.13,0.734,1.6
+"JOR","Jordan",3.62,0.729,4.7
+"JPN","Japan",8.13,0.919,0.93
+"KAZ","Kazakhstan",3.14,0.825,1.1
+"KEN","Kenya",5.05,0.601,1.3
+"KGZ","Kyrgyzstan",4.21,0.697,1.5
+"KHM","Cambodia",3.1,0.594,2.3
+"KWT","Kuwait",3.8,0.806,5.6
+"LBN","Lebanon",4.16,0.744,4.2
+"LBR","Liberia",5.32,0.48,0.5
+"LKA","Sri Lanka",6.14,0.782,1.9
+"LSO","Lesotho",6.3,0.527,1.5
+"LTU","Lithuania",7.13,0.882,2.28
+"LUX","Luxembourg",8.68,0.916,0.64
+"LVA","Latvia",7.24,0.866,2.32
+"MAR","Morocco",5.04,0.686,3.1
+"MDG","Madagascar",5.7,0.528,0.6
+"MEX","Mexico",6.07,0.779,0.5
+"MLI","Mali",3.93,0.434,2.7
+"MLT","Malta",7.68,0.895,0.6
+"MMR","Burma",3.04,0.583,2.9
+"MNE","Montenegro",5.77,0.829,1.91
+"MNG","Mongolia",6.48,0.737,0.7
+"MOZ","Mozambique",3.51,0.456,0.99
+"MRT","Mauritania",3.92,0.546,2.8
+"MUS","Mauritius",8.14,0.804,0.2
+"MWI","Malawi",5.74,0.483,0.9
+"MYS","Malaysia",7.19,0.81,1
+"NAM","Namibia",6.52,0.646,3
+"NER","Niger",3.29,0.394,1.8
+"NGA","Nigeria",4.1,0.539,0.5
+"NIC","Nicaragua",3.6,0.66,0.7
+"NLD","Netherlands",8.96,0.944,1.48
+"NOR","Norway",9.81,0.957,2.03
+"NPL","Nepal",5.22,0.602,1.6
+"NZL","New Zealand",9.25,0.931,1.5
+"OMN","Oman",3,0.813,8.8
+"PAK","Pakistan",4.31,0.557,4
+"PER","Peru",6.53,0.777,1.2
+"PHL","Philippines",6.56,0.718,1
+"PNG","Papua New Guinea",6.1,0.555,0.4
+"POL","Poland",6.85,0.88,2.3
+"PRT","Portugal",7.9,0.864,1.63
+"PRY","Paraguay",6.18,0.728,1
+"ROU","Romania",6.4,0.828,2.38
+"RUS","Russia",3.31,0.824,3.9
+"RWA","Rwanda",3.1,0.543,1.2
+"SAU","Saudi Arabia",2.08,0.854,8
+"SDN","Sudan",2.54,0.51,1.6
+"SEN","Senegal",5.67,0.512,1.5
+"SGP","Singapore",6.03,0.938,3.2
+"SLE","Sierra Leone",4.86,0.452,0.7
+"SLV","El Salvador",5.9,0.673,1.2
+"SRB","Serbia",6.22,0.806,2.2
+"SVK","Slovakia",6.97,0.86,1.86
+"SVN","Slovenia",7.54,0.917,1.2
+"SWE","Sweden",9.26,0.945,1.1
+"TCD","Chad",1.55,0.398,2.2
+"TGO","Togo",2.8,0.515,3.1
+"THA","Thailand",6.04,0.777,1.3
+"TJK","Tajikistan",1.94,0.668,1.2
+"TLS","Timor-Leste",7.06,0.606,1
+"TTO","Trinidad and Tobago",7.16,0.796,0.7
+"TUN","Tunisia",6.59,0.74,2.6
+"TUR","Turkey",4.48,0.82,1.91
+"TWN","Taiwan",8.94,NA,1.7
+"UGA","Uganda",4.94,0.544,2.1
+"UKR","Ukraine",5.81,0.779,3.9
+"URY","Uruguay",8.61,0.817,2
+"USA","United States",7.92,0.926,3.87
+"UZB","Uzbekistan",2.12,0.72,4
+"VEN","Venezuela",2.76,0.711,0.5
+"YEM","Yemen",1.95,0.47,3.98
+"ZAF","South Africa",7.05,0.709,1
+"ZMB","Zambia",4.86,0.584,1.2
+"ZWE","Zimbabwe",3.16,0.571,1
